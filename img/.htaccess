@@ -1,0 +1,7 @@
+Options All -Indexes
+IndexIgnore *
+# el resultado sera una pagina de 403 ¡Acceso prohibido!
+<FilesMatch "\.(php|txt|html)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
