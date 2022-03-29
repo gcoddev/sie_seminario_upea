@@ -48,7 +48,7 @@ class Mapping
             "64" => "auth@usuarios",
             "65" => "Controller_inscripcion@usuarios_datos",
             "66" => "backend/Dashboard@lista_participantes",
-
+            "67" => "Controller_inscripcion@insertar_usuario",
         ];
     }
 

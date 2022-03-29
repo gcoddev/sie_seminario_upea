@@ -3,8 +3,6 @@
 class Modelo_administrador extends CI_Model
 {
 
-
-
     function __construct()
     {
         parent::__construct();
@@ -334,5 +332,32 @@ ON ve.id_estudiante = dat.id_estudiante $query GROUP BY n.comentario";
     {
         $this->db->where($con_id, $id);
         return $this->db->update($tabla, $datos_array);
+    }
+
+    public function RetornarId($ci) {
+        $dat = $this->db->query("SELECT id FROM users WHERE id_persona = $ci")->row();
+        return $dat->id;
+    }
+
+    function agregar_admin($datos = array()) {
+        $datos2 = array(
+            'id_persona' => $datos->ci,
+            'ip_address' => 'localhost',
+            'username' => $datos->ci,
+            'password' => password_hash($datos->fecha_nac, PASSWORD_DEFAULT),
+            'salt' => 0,
+            'email' => $datos->email,
+            'created_on' => 123456,
+            'first_name' => $datos->nombre,
+            'last_name' => $datos->paterno. ' ' .$datos->materno,
+            'active' => 1
+        );
+        // echo $id.' '.$password;
+        // $query = "INSERT INTO users('id_persona', 'ip_address', 'username', 'password', 'salt', 'email, 'created_on') VALUES($id, $ip, $username, $password, $salt, $email, $created_on)";
+
+        // $this->db->query($query);
+        // print_r($datos2);
+        $this->db->insert('users', $datos2);
+        // print_r($envio);
     }
 }

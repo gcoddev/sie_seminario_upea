@@ -8,7 +8,7 @@
     <meta name="discrption" content="parallax one page" />
 
     <!--  Title -->
-    <title>SEMINARIOS||UPEA</title>
+    <title>SEMINARIOS - UPEA</title>
 
     <!-- Font Google -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -256,7 +256,7 @@
                 data: $("form").serialize(),
                 success: function(dato) {
                     var valores = eval(dato);
-              /*       console.log(valores[0] );
+              /*    console.log(valores[0] );
                     return false;  */
                     if (valores[0] == 2) {
                         $("#error").html("<b style='color: #ff0000;'>Error de captcha</b>");

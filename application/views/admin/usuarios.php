@@ -79,7 +79,7 @@
     }
     function buscar_ci1(ci1){
         if (ci1.length >= 4) {
-            $.ajax({
+           $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(Hasher::make(65)); ?>",
                 data: {
@@ -87,12 +87,10 @@
                 },
 
                 success: function(response) {
-                    console.log(response);
-                    return  false;
-
                     $("#crear_1").html(response)
                 }
-            });
+            }); 
+
         }
 
     }
@@ -110,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div id="crear_1" class="modal-content bg-warning">
+        <div id="crear_1" class="modal-content">
         </div>
         <!-- /.modal-content -->
     </div>

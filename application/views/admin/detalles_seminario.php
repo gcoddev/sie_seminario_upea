@@ -70,6 +70,9 @@
                                     </div>
                                 
                             </a>
+                            <?php
+                                try{
+                            ?>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>posición Y del estudiante<span class="text-danger"></span></h5>
@@ -132,7 +135,11 @@
                            
                                 </div>
                             </div>
-
+                            <?php
+                                }catch(Exception $e){
+                                    echo('No se encontro');
+                                }
+                            ?>
                             <script>
                                 function actualizarPOsicion(id_sem, id, colum, valor) {
                                     $.ajax({

@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="<?= base_url(); ?>img/favicon.ico">
 
-	<title>seminarios||upea</title>
+	<title>seminarios  upea</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="<?= base_url(); ?>asset/css/vendors_css.css">

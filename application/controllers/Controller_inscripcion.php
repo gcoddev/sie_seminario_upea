@@ -7,7 +7,7 @@ class Controller_inscripcion extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['Modelo_estudiante', 'Modelo_fuctions']);
+		$this->load->model(['Modelo_estudiante', 'Modelo_fuctions', 'Modelo_administrador', 'Modelo_users_groups']);
 		$this->load->helper('funciones_helper');
 		// $this->load->helper('download');
 	}
@@ -80,9 +80,33 @@ class Controller_inscripcion extends CI_Controller
 	public function usuarios_datos()
 	{
 		$this->data['datos1'] = $this->Modelo_estudiante->RetornaUnRegistroDeUnaTablaBD('base_upea.vista_persona', 'ci', $this->input->post('ci1'), $query = '');
-		$this->data['grupos'] = $this->Modelo_estudiante->RetornaUnaTabla('groups');
+		$this->data['grupos'] = $this->Modelo_estudiante->RetornaUnaTabla("groups");
 		$this->load->view('admin/crear_usuario', $this->data);
 	}
+
+	public function insertar_usuario(){
+		// echo $this->input->post('ci');
+		//$mundo=$_POST['iden'];
+		//echo $mundo;
+		//echo $this->input->post('ci');
+		// $mundo=$_POST['iden'];
+		//echo $this->input->post('id');
+		// print_r($user_group);
+		
+		
+		$id = $this->input->post('id');
+		$user = $this->Modelo_estudiante->RetornaUnRegistroDeUnaTablaBD('base_upea.vista_persona', 'id', $id, $query = '');
+		$ci = $user->ci;
+		$this->Modelo_administrador->agregar_admin($user);
+		
+		$id2 = $this->Modelo_administrador->RetornarId($ci);
+		echo $id2;
+
+		$user_group = $this->input->post();
+		// // print_r($user_group);
+		$this->Modelo_users_groups->insertar($user_group, $id2);
+	}
+
 	function registrar_persona()
 	{
 		/* echo ($this->input->post('carnet'));

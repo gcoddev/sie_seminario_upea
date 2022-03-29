@@ -2,7 +2,7 @@
 
   <div class="box">
     <div class="box-header with-border">
-      <?php $sem = $this->Modelo_fuctions->RetornaUnRegistroDeUnaTablaBD('capacitacion', '	id_capacitacion', $sem, $query = '') ?>
+      <?php $sem = $this->Modelo_fuctions->RetornaUnRegistroDeUnaTablaBD('capacitacion', 'id_capacitacion', $sem, $query = '') ?>
       <h3 class="box-title"><?= $sem->nombre ?></h3>
     </div>
     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
@@ -135,7 +135,7 @@
                 confirmButtonText: 'Si ¡¡ deseo registrarme'
               }).then((result) => {
                 if (result.isConfirmed) {
-                  var dat = `  <div class="section-title">
+                  var dat = ' <div class="section-title">
                         <span class="tag-heading p-10 mb-15 background-section heading-color">Registro nuevo</span>
                         <h2 class="heading-h2">por favor registre sus datos para poder participar del seminario</h2>
                     </div>
@@ -211,7 +211,7 @@
                                 </div>
                         </div>
                         </form>
-                    </div>`;
+                    </div>';
                   $('#contacto1').html(dat);
                 }
               })
